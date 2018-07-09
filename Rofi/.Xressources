@@ -1,0 +1,11 @@
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! User : Zami3l
+! Theme : Dark Red
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window: argb:0000000, #cf000f, #cf000f
+rofi.color-normal: argb:f000000, #cf000f, argb:0121212, #121212, #cf000f
+rofi.color-active: argb:f000000, #2ad226, argb:0121212, #121212, #2ad226
+rofi.color-urgent: argb:f000000, #ecff00, argb:0121212, #121212, #ecff00
+rofi.font: "SFNS Display" medium 16
