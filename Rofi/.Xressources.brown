@@ -1,0 +1,16 @@
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! User : Zami3l
+! Theme : Color Brown & Red
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.padding: 10
+rofi.width: 30
+rofi.lines: 8
+! Couleur Fenêtre : #Fond, #Contour, #Separateur
+rofi.color-window: #212121, #f44336, #212121
+! Couleur [normal, active, urgent] : #Fond_Impair, #Font, #Fond_Pair, #Fond_Selection, #Font_Selection
+rofi.color-normal:  #212121,  #424242,  #212121,  #212121, #f44336
+rofi.color-active:  #212121,  #424242,  #212121,  #212121, #f44336
+rofi.color-urgent:  #212121,  #424242,  #212121,  #212121, #f44336
+rofi.font: Inconsolata Bold 12

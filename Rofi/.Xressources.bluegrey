@@ -1,7 +1,7 @@
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
 ! User: Zami3l
-! Theme : Color Mate
+! Theme : Color Blue Grey & Grey
 ! ------------------------------------------------------------------------------
 rofi.color-enabled: true
 rofi.color-window: #273238, #ECECEC, #F03434

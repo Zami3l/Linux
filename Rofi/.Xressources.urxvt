@@ -1,0 +1,140 @@
+!-------------------------------------------------------------------------------
+! Xft settings
+!-------------------------------------------------------------------------------
+
+Xft.dpi:                    96
+Xft.antialias:              false
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintslight
+
+!-------------------------------------------------------------------------------
+! URxvt settings
+!-------------------------------------------------------------------------------
+
+URxvt.depth:                32
+URxvt.geometry:             80x25
+URxvt.transparent:          false
+URxvt.fading:               0
+! URxvt.urgentOnBell:         true
+! URxvt.visualBell:           true
+URxvt.loginShell:           true
+URxvt.saveLines:            50
+URxvt.internalBorder:       3
+URxvt.lineSpace:            0
+
+! Fonts
+URxvt.allow_bold:          true
+URxvt*font:                            xft:Dejavu Sans Mono:Regular:pixelsize=15:antialias=true
+URxvt*boldFont:                        xft:Dejavu Sans Mono:Bold:pixelsize=15:antialias=true
+
+! Fix font space
+URxvt*letterSpace: 0
+
+! Scrollbar
+URxvt.scrollStyle:          rxvt
+URxvt.scrollBar:            false
+
+! Perl extensions
+URxvt.perl-ext-common:      default,matcher
+URxvt.matcher.button:       1
+URxvt.urlLauncher:          firefox
+
+! Cursor
+URxvt.cursorBlink:          true
+URxvt.cursorColor:          #657b83
+URxvt.cursorUnderline:      false
+
+! Pointer
+URxvt.pointerBlank:         true
+
+! ---------------------- !
+*background: #263238
+*foreground: #A1B0B8
+*fadeColor: #002b36
+*cursorColor: #93a1a1
+*pointerColorBackground: #000000
+*pointerColorForeground: #FFFFFF
+! ---------------------- !
+
+! ---------------------- !
+! -- Black Dark/Light -- !
+! ----- Solarized ------ !
+!*color0: #073642
+!*color8: #002b36
+! ------ Material ------ !
+*color0: #252525
+*color8: #708284
+! ---------------------- !
+
+! ---------------------- !
+!! Red Dark/Light
+! ----- Solarized ------ !
+!*color1: #dc322f
+!*color9: #cb4b16
+! ------ Material ------ !
+*color1: #FF5252
+*color9: #FF5252
+! ---------------------- !
+
+! ---------------------- !
+!! Green Dark/Light
+! ----- Solarized ------ !
+!*color2: #859900
+!*color10: #586e75
+! ------ Material ------ !
+*color2: #C3D82C
+*color10: #C3D82C
+! ---------------------- !
+
+
+! ---------------------- !
+!! Yellow Dark/Light
+! ----- Solarized ------ !
+!*color3: #b58900
+!*color11: #657b83
+! ------ Material ------ !
+*color3: #FFC135
+*color11: #FFC135
+! ---------------------- !
+
+! ---------------------- !
+!! Blue Dark/Light
+! ----- Solarized ------ !
+!*color4: #268bd2
+!*color12: #839496
+! ------ Material ------ !
+*color4: #42A5F5
+*color12: #42A5F5
+! ---------------------- !
+
+! ---------------------- !
+!! Magenta Dark/Light
+! ----- Solarized ------ !
+!*color5: #d33682
+!*color13: #6c71c4
+! ------ Material ------ !
+*color5: #D81B60
+*color13: #D81B60
+! ---------------------- !
+
+! ---------------------- !
+!! Cyan Dark/Light
+! ----- Solarized ------ !
+!*color6: #2aa198
+!*color14: #93a1a1
+! ------ Material ------ !
+*color6: #00ACC1
+*color14: #00ACC1
+! ---------------------- !
+
+! ---------------------- !
+!! White Dark/Light
+! ----- Solarized ------ !
+!*color7: #eee8d5
+!*color15: #fdf6e3
+! ------ Material ------ !
+*color7: #F5F5F5
+*color15: #F5F5F5
+! ---------------------- !
+

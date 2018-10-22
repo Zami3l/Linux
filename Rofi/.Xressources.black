@@ -1,7 +1,7 @@
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
 ! User : Zami3l
-! Theme : Dark Red
+! Theme : Color Dark & Red
 ! ------------------------------------------------------------------------------
 rofi.color-enabled: true
 rofi.color-window: argb:0000000, #cf000f, #cf000f
