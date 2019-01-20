@@ -1,0 +1,42 @@
+source /etc/network/interfaces.d/*
+
+auto lo
+iface lo inet loopback
+
+allow-WAN enp1s0
+iface enp1s0 inet manual
+	ovs_type OVSPort
+	ovs_bridge WAN
+
+auto WAN
+iface WAN inet static
+	address  192.168.1.254
+	netmask  255.255.255.0
+	gateway  192.168.1.1
+	ovs_type OVSBridge
+	ovs_ports enp1s0
+
+allow-LAN enp4s0
+iface enp4s0 inet manual
+	ovs_type OVSPort
+	ovs_bridge LAN
+
+auto LAN
+iface LAN inet static
+	address 192.168.100.254
+	netmask  255.255.255.0
+	ovs_type OVSBridge
+	ovs_ports enp4s0
+
+auto VM
+iface VM inet static
+	address 192.168.150.254
+	netmask 255.255.255.0
+	ovs_type OVSBridge
+
+
+auto DMZ
+iface DMZ inet static
+	address 10.10.10.254
+	netmask 255.255.255.0
+	ovs_type OVSBridge
