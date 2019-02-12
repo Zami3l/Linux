@@ -23,4 +23,11 @@ Cmd_Iptables.commande('filter', 'OUTPUT', 'ACCEPT', 'Politique_Simple')
 
 #On autorise le trafic sur la machine locale
 Cmd_Iptables.commande_globale(Filter='INPUT', In_Interface=Interface_Local, Action='ACCEPT')
-Cmd_Iptables.commande_globale(Filter='OUTPUT', Out_Interface=Interface_Local, Action='ACCEPT')
+
+## Interface WAN
+
+#Création du NAT
+Cmd_Iptables.commande_globale(Table='nat', Filter='POSTROUTING', Out_Interface='WAN', Action='MASQUERADE')
+
+#On autorise le trafic du WAN vers le Firewall
+Cmd_Iptables.commande_globale(Filter='INPUT', In_Interface=Interface_WAN, Action='ACCEPT')
