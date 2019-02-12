@@ -20,3 +20,7 @@ Cmd_Iptables.initialisation()
 Cmd_Iptables.commande('filter', 'INPUT', 'DROP', 'Politique_Simple')
 Cmd_Iptables.commande('filter', 'FORWARD', 'DROP', 'Politique_Simple')
 Cmd_Iptables.commande('filter', 'OUTPUT', 'ACCEPT', 'Politique_Simple')
+
+#On autorise le trafic sur la machine locale
+Cmd_Iptables.commande_globale(Filter='INPUT', In_Interface=Interface_Local, Action='ACCEPT')
+Cmd_Iptables.commande_globale(Filter='OUTPUT', Out_Interface=Interface_Local, Action='ACCEPT')
