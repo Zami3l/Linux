@@ -13,8 +13,8 @@ class Iptables:
     Liste['Action'] = 'ACCEPT', 'DENY', 'REJECT', 'DROP'
 
     #Déclaration des paramètres acceptés par la fonction Commande Globale
-    Parametres_Commande = {'In_Interface': None, 'Out_Interface': None, 'Protocole': None, 'Destination': None,
-                    'Destination_Protocole': None, 'Filter': None, 'Action': None, 'Table': None}
+    Parametres_Commande = {'Filter': None, 'In_Interface': None, 'Out_Interface': None, 'Protocole': None, 'Destination': None,
+                    'Destination_Protocole': None, 'Table': None, 'Action': None}
 
     #Declaration d'une liste pour la sauvegarde des paramètres trouvés
     Save_Parametres = [0] * len(Parametres_Commande.keys())
@@ -96,45 +96,45 @@ class Iptables:
 
             self.Test_Argument(list(Parametres.keys())[Index])
 
-        # On affecte le paramètre In Interface
+        # On affecte le paramètre Filter
         if self.Save_Parametres[0] == True:
+
+            result += "-A {} ".format(Parametres.get('Filter'))
+
+        # On affecte le paramètre In Interface
+        if self.Save_Parametres[1] == True:
 
             result += "-i {} ".format(Parametres.get('In_Interface'))
 
         # On affecte le paramètre Out Interface
-        if self.Save_Parametres[1] == True:
+        if self.Save_Parametres[2] == True:
 
             result += "-o {} ".format(Parametres.get('Out_Interface'))
 
         # On affecte le paramètre Protocole
-        if self.Save_Parametres[2] == True:
+        if self.Save_Parametres[3] == True:
 
             result += "-p {} ".format(Parametres.get('Protocole'))
 
         # On affecte le paramètre Destination
-        if self.Save_Parametres[3] == True:
+        if self.Save_Parametres[4] == True:
 
             result += "-d {} ".format(Parametres.get('Destination'))
 
         # On affecte le paramètre Destionation Protocole
-        if self.Save_Parametres[4] == True:
+        if self.Save_Parametres[5] == True:
 
             result += "-dport {} ".format(Parametres.get('Destination_Protocole'))
 
-        # On affecte le paramètre Filter
-        if self.Save_Parametres[5] == True:
-
-            result += "-A {} ".format(Parametres.get('Filter'))
-
-        # On affecte le paramètre Action
+        # On affecte le paramètre Table
         if self.Save_Parametres[6] == True:
 
-            result += "-j {} ".format(Parametres.get('Action'))
+            result += "-n {} ".format(Parametres.get('Table'))
 
-        # On affecte le paramètre Table
+        # On affecte le paramètre Action
         if self.Save_Parametres[7] == True:
 
-            result += "-n {} ".format(Parametres.get('Table'))
+            result += "-j {} ".format(Parametres.get('Action'))
 
         print(result)
 
