@@ -12,6 +12,11 @@ class Iptables:
     Liste['Chaine'] = 'INPUT', 'FORWARD', 'PREROUTING', 'POSTROUTING', 'OUTPUT'
     Liste['Action'] = 'ACCEPT', 'DENY', 'REJECT', 'DROP'
 
+    Parametres = {'In_Interface': None, 'Out_Interface': None, 'Protocole': None, 'Destination': None,
+                    'Destination_Protocole': None, 'Filter': None, 'Action': None, 'Table': None}
+
+    Save_Parametres = [len(Parametres.keys())]
+
     #Fonction Initialisation : Permet d'initialiser iptables
     def initialisation(self):
 
@@ -54,8 +59,16 @@ class Iptables:
 
         #Supprimer toutes les chaines personnalisées d'une table
         elif Mode == 'Del_Chaine':
-            result = "ptables -t {} -X".format(Table)
+            result = "iptables -t {} -X".format(Table)
 
         print(result)
 
         return result
+
+    def Test_Argument(self, Argument):
+
+        for Index in range(0, len(self.Parametres.keys())):
+
+            if Argument == list(self.Parametres.keys())[Index]:
+                self.Save_Parametres[Index] = True
+                break
