@@ -1,0 +1,23 @@
+<network>
+	<name>VM</name>
+	<forward mode='bridge'/>
+	<bridge name='VM'/>
+ 	<virtualport type='openvswitch'/>
+
+	<portgroup name='VLAN10'>
+		<vlan>
+			<tag id='10'/>
+		</vlan>
+	</portgroup>
+	<portgroup name='VLAN20'>
+		<vlan>
+			<tag id='20'/>
+		</vlan>
+	</portgroup>
+	<portgroup name='VLAN99'>
+		<vlan trunk='yes'>
+			<tag id='10'/>
+			<tag id='20'/>
+		</vlan>
+	</portgroup>
+</network>
