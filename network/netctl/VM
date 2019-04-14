@@ -1,0 +1,5 @@
+Description='Réseau VM'
+Interface=VM
+Connection=openvswitch
+IP=static
+Address=('192.168.200.254/24')

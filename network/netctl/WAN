@@ -1,0 +1,8 @@
+Description='Réseau WAN'
+Interface=WAN
+Connection=openvswitch
+BindsToInterfaces=(enp1s0)
+IP=static
+Address=('192.168.1.254/24')
+Gateway='192.168.1.1'
+DNS=('208.67.222.222')

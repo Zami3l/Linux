@@ -1,0 +1,6 @@
+Description='Réseau LAN'
+Interface=LAN
+Connection=openvswitch
+BindsToInterfaces=(enp4s0)
+IP=static
+Address=('192.168.100.254/24')

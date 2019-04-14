@@ -1,0 +1,5 @@
+Description='Réseau DMZ'
+Interface=DMZ
+Connection=openvswitch
+IP=static
+Address=('10.10.1.254/24')
