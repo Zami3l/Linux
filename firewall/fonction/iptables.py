@@ -13,8 +13,8 @@ class Iptables:
     Liste['Action'] = 'ACCEPT', 'DENY', 'REJECT', 'DROP'
 
     #Déclaration des paramètres acceptés par la fonction Commande Globale
-    Parametres_Commande = {'Filter': None, 'In_Interface': None, 'Out_Interface': None, 'Protocole': None, 'Destination': None,
-                    'Destination_Protocole': None, 'Table': None, 'Action': None}
+    Parametres_Commande = {'Filter': None, 'In_Interface': None, 'Out_Interface': None, 'Protocole': None, 'In_Destination': None,
+                    'In_Destination_Protocole': None, 'Table': None, 'Action': None}
 
     #Declaration d'une liste pour la sauvegarde des paramètres trouvés
     Save_Parametres = [0] * len(Parametres_Commande.keys())
@@ -119,12 +119,12 @@ class Iptables:
         # On affecte le paramètre Destination
         if self.Save_Parametres[4] == True:
 
-            result += "-d {} ".format(Parametres.get('Destination'))
+            result += "-d {} ".format(Parametres.get('In_Destination'))
 
         # On affecte le paramètre Destionation Protocole
         if self.Save_Parametres[5] == True:
 
-            result += "--dport {} ".format(Parametres.get('Destination_Protocole'))
+            result += "--dport {} ".format(Parametres.get('In_Destination_Protocole'))
 
         # On affecte le paramètre Table
         if self.Save_Parametres[6] == True:
