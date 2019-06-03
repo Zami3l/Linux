@@ -124,7 +124,7 @@ class Iptables:
         # On affecte le paramètre Destionation Protocole
         if self.Save_Parametres[5] == True:
 
-            result += "-dport {} ".format(Parametres.get('Destination_Protocole'))
+            result += "--dport {} ".format(Parametres.get('Destination_Protocole'))
 
         # On affecte le paramètre Table
         if self.Save_Parametres[6] == True:
