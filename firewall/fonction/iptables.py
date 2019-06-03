@@ -24,6 +24,26 @@ class Iptables:
     #Declaration d'une liste pour la sauvegarde des paramètres trouvés
     Save_Parametres = [0] * len(Parametres_Commande.keys())
 
+    #Nom du fichier à créer
+    Name_File = 'iptables.sh'
+
+    #Fonction Création fichier sh : Création/Test du fichier iptables
+    def create_file(self):
+
+        if (os.path.exists(self.Name_File) == True):
+            os.remove(self.Name_File)
+        
+        os.system("echo -e '#!/bin/bash\n' >> {}".format(self.Name_File))
+
+    def open_file(self):
+        self.File = open(self.Name_File, "a")
+
+    def close_file(self):
+        self.File.close()        
+
+    def ecrire_file(self, valeur):
+        self.File.write("\n" + valeur)
+
     #Fonction Initialisation : Permet d'initialiser iptables
     def initialisation(self):
 
@@ -32,18 +52,18 @@ class Iptables:
 
             for Index_Chaine in range(0,len(self.Liste[list(self.Liste.keys())[Index_Table]])):
 
-                print(self.commande(list(self.Liste.keys())[Index_Table], self.Liste[list(self.Liste.keys())[Index_Table]][Index_Chaine], self.Liste['Action'][0], 'Politique_Avancee'))
+                self.ecrire_file(self.commande(list(self.Liste.keys())[Index_Table], self.Liste[list(self.Liste.keys())[Index_Table]][Index_Chaine], self.Liste['Action'][0], 'Politique_Avancee'))
 
         #Remttre les compteurs à zéro
         for Index_Table in range(0,3):
 
-            print(self.commande(Table=(list(self.Liste.keys())[Index_Table]), Mode='Reset'))
+            self.ecrire_file(self.commande(Table=(list(self.Liste.keys())[Index_Table]), Mode='Reset'))
 
         #Supprimer les règles actives et les chaines personnalisées
         for Index_Table in range(0,3):
 
-            print(self.commande(Table=(list(self.Liste.keys())[Index_Table]), Mode='Del_Regle'))
-            print(self.commande(Table=(list(self.Liste.keys())[Index_Table]), Mode='Del_Chaine'))
+            self.ecrire_file(self.commande(Table=(list(self.Liste.keys())[Index_Table]), Mode='Del_Regle'))
+            self.ecrire_file(self.commande(Table=(list(self.Liste.keys())[Index_Table]), Mode='Del_Chaine'))
 
     #Fonction Commande : Permet de générer les commandes iptables
     def commande(self, Table='filter', Chaine='INPUT', Action='DENY', Mode='Defaut'):
@@ -73,12 +93,12 @@ class Iptables:
 
             result = "iptables -t {} -X".format(Table)
 
-        print(result)
+        self.ecrire_file(result)
 
         return result
 
     #Fonction Test Argument : Permet de vérifier et de sauvegarder les paramètres passés dans la fonction Commande Globale
-    def Test_Argument(self, Argument):
+    def test_argument(self, Argument):
 
         for Index in range(0, len(self.Parametres_Commande.keys())):
 
@@ -99,7 +119,7 @@ class Iptables:
         # On lance la fonction Test Argument
         for Index in range(0, len(Parametres.keys())):
 
-            self.Test_Argument(list(Parametres.keys())[Index])
+            self.test_argument(list(Parametres.keys())[Index])
 
         # On affecte le paramètre Filter
         if self.Save_Parametres[0] == True:
@@ -151,6 +171,6 @@ class Iptables:
 
             result += "-j {} ".format(Parametres.get('Action'))
 
-        print(result)
+        self.ecrire_file(result)
 
         return result
