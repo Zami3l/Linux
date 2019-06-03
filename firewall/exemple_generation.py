@@ -13,6 +13,12 @@ Interface_VM = 'VM'
 #Affectation de la classe Iptables
 Cmd_Iptables = Iptables()
 
+#On crée notre fichier sh
+Cmd_Iptables.create_file()
+
+#On ouvre le fichier sh
+Cmd_Iptables.open_file()
+
 #On initialise iptables
 Cmd_Iptables.initialisation()
 
@@ -31,3 +37,6 @@ Cmd_Iptables.commande_globale(Table='nat', Filter='POSTROUTING', Out_Interface='
 
 #On autorise le trafic du WAN vers le Firewall
 Cmd_Iptables.commande_globale(Filter='INPUT', In_Interface=Interface_WAN, Action='ACCEPT')
+
+#On ferme le fichier sh
+Cmd_Iptables.close_file()
