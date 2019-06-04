@@ -1,0 +1,12 @@
+#! /etc/systemd/system/iptables.service 
+[Unit]
+Description=Firewall
+After=network.target
+ 
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/sh -c "/sbin/iptables-restore < /etc/iptables/iptables.rules"
+ 
+[Install]
+WantedBy=multi-user.target
