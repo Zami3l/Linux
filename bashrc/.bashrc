@@ -38,9 +38,17 @@ fi
 export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:
 
 # Alias
+if grep -q "Arch" /etc/issue ; then
+alias install='sudo pacman -S'
+alias update='sudo pacman -Sy'
+alias upgrade='sudo pacman -Syu'
+alias S='yay -S'
+alias Syu='yay -Syu'
+elif grep -q "Debian" /etc/issue ; then
 alias install='sudo apt-get install'
 alias update='sudo apt-get update'
 alias upgrade='sudo apt-get upgrade'
+fi
 alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
@@ -49,8 +57,9 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias d='docker'
 alias dc='docker-compose'
-alias shutdown='shutdown'
+alias shutdown='sudo shutdown'
 alias reboot='sudo reboot'
+alias py='python3'
 
 # Couleurs
 RED="\[\033[0;31m\]"
